@@ -5,16 +5,16 @@ export default class Home extends Component {
     return (
       <div>
         <section>
-          <Link to="/bins/a">
+          <Link to="/bins/A">
             <div>Shelf A</div>
           </Link>
-          <Link to="/bins/b">
+          <Link to="/bins/B">
             <div>Shelf B</div>
           </Link>
-          <Link to="/bins/c">
+          <Link to="/bins/C">
             <div>Shelf C</div>
           </Link>
-          <Link to="/bins/d">
+          <Link to="/bins/D">
             <div>Shelf D</div>
           </Link>
         </section>

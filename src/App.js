@@ -15,9 +15,9 @@ class App extends Component {
         <HashRouter>
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/bins/:letter"  component={Bins} />
-            <Route path="/item"  component={Item}/>
-            <Route path="/add" component={AddProduct}/>
+            <Route path="/bins/:shelf" component={Bins} />
+            <Route path="/item/:id" component={Item} />
+            <Route path="/add/:shelf" component={AddProduct} />
           </Switch>
         </HashRouter>
       </div>
