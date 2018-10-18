@@ -7,8 +7,14 @@ export default class AddProduct extends Component {
     this.state = {
       shelf: [],
       name: "",
-      price: 0
+      price: 0,
+      img: "",
+      bin: 0
     };
+    this.handleName = this.handleName.bind(this);
+    this.handlePrice = this.handlePrice.bind(this);
+    this.handleImg = this.handleImg.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
   }
   componentDidMount() {
     axios.get(`/api/getshelf/${this.props.match.params.shelf}`).then(res => {
@@ -19,20 +25,50 @@ export default class AddProduct extends Component {
       });
     });
   }
+
+  handleName(e) {
+    this.setState({ name: e.target.value });
+  }
+
+  handlePrice(e) {
+    this.setState({ price: e.target.value });
+  }
+
+  handleImg(e) {
+    this.setState({ img: e.target.value });
+  }
+  handleBin(){
+   
+  }
+
   handleAdd() {
-    // let prod = this.state.shelf.map((e,i) => {
-    //   return e.shelf[i]
+    const { name, price, img, bin } = this.state;
+    // let bins = this.state.shelf.map((e, i) => {
+    //   return this.state.shelf[i].e.bin
+    //   if(bins !== -1) {
+    //     this.setState({bin: 1})
+    //   } else {
+    //     this.setState({bin:})
+    //   }
     // })
-    axios.post(`/api/bin/${this.props.match.params.shelf}`);
+    axios.post(`/api/bin/${this.props.match.params.shelf}`, {
+      name,
+      price,
+      img,
+      bin
+    });
   }
   render() {
     console.log(this.state.shelf);
     return (
       <div>
         <h1>Add</h1>
-        <input type="text" placeholder="name" />
-        <input type="text" placeholder="price" />
-        <input type="text" placeholder="image" />
+        <p>Name</p>
+        <input type="text" placeholder="name" onChange={this.handleName} />
+        <p>Price</p>
+        <input type="text" placeholder="price" onChange={this.handlePrice} />
+        <p>Image</p>
+        <input type="text" placeholder="image" onChange={this.handleImg} /> <br/>
         <button onClick={this.handleAdd}>+ Add Inventory</button>
       </div>
     );

@@ -8,7 +8,8 @@ export default class Item extends Component {
       item: {},
       name: "",
       price: "",
-      img: ""
+      img: "",
+      toggleEdit: false
     };
   }
   componentDidMount() {
@@ -22,8 +23,26 @@ export default class Item extends Component {
     );
   }
 
-  handleName(val){
-    this.setState({name: val})
+  handleChangeName(e) {
+    this.setState({ name: e.target.value });
+  }
+
+  handleChangePrice(e) {
+    this.setState({ price: e.target.value });
+  }
+
+  handleDelete = () => {
+    axios.delete(`/api/item/${this.props.match.params.id}`).then(res =>
+      this.setState({
+        item: res.data[0],
+        name: res.data[0].prod_name,
+        price: res.data[0].price,
+        img: res.data[0].img
+      })
+    );
+  };
+  handleToggle() {
+    this.setState({ toggleEdit: true });
   }
 
   render() {
@@ -33,11 +52,15 @@ export default class Item extends Component {
         <h1>Item</h1>
         <img src={this.state.img} alt="" />
         <h2>Name</h2>
-        <input type="text" placeholder={this.state.name}/>
+        <input type="text" disabled placeholder={this.state.name} />
         <h2>Price</h2>
-        <input type="text" placeholder={this.state.price} />
-        <button>Edit</button>
-        <button>Delete</button>
+        <input type="text" disabled placeholder={this.state.price} />
+        {this.state.toggleEdit === false ? (
+          <button>Edit</button>
+        ) : (
+          <button onClick={this.handleToggle}>Save</button>
+        )}
+        <button onClick={this.handleDelete}>Delete</button>
       </div>
     );
   }

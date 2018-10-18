@@ -22,7 +22,26 @@ module.exports = {
       });
   },
   postInventory: (req, res) => {
-    // const db = req.app.get("db")
-    // db.post_inventory([req.params.shelf, bin, name, price, img])
+    const db = req.app.get("db");
+    const { name, price, img, bin } = req.body;
+    db.post_inventory([req.params.shelf, bin, name, price, img])
+      .then(() => {
+        res.sendStatus(200);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).send(err);
+      });
+  },
+  deleteItem: (req, res) => {
+    const db = req.app.get("db");
+    db.delete_item(req.params.id)
+      .then(products => {
+        res.status(200).send(products);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).send(err);
+      });
   }
 };

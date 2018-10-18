@@ -1,0 +1,1 @@
+select shelf, bin from products
