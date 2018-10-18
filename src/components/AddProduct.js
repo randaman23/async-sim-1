@@ -37,26 +37,32 @@ export default class AddProduct extends Component {
   handleImg(e) {
     this.setState({ img: e.target.value });
   }
-  handleBin(){
-   
+  handleBin() {
+    // const {shelf} = this.state
+    // for (let i = 0; i < shelf.length; i++) {
+    //   if (shelf[i].bin !== -1) {
+    //     this.setState({bin: 1})
+    //   } else{
+    //     shelf[i].bin++
+    //   }
+    // }
   }
 
   handleAdd() {
-    const { name, price, img, bin } = this.state;
-    // let bins = this.state.shelf.map((e, i) => {
-    //   return this.state.shelf[i].e.bin
-    //   if(bins !== -1) {
-    //     this.setState({bin: 1})
-    //   } else {
-    //     this.setState({bin:})
-    //   }
-    // })
-    axios.post(`/api/bin/${this.props.match.params.shelf}`, {
-      name,
-      price,
-      img,
-      bin
-    });
+    const { name, price, img, bin, shelf } = this.state;
+    for (let i = 0; i < shelf.length; i++) {
+      if (shelf[i].bin !== -1) {
+        this.setState({ bin: 1 });
+      } else {
+        this.setState({bin: shelf[i].bin++});
+      }      
+      axios.post(`/api/bin/${this.props.match.params.shelf}`, {
+        name,
+        price,
+        img,
+        bin
+      });
+    }
   }
   render() {
     console.log(this.state.shelf);
@@ -68,7 +74,8 @@ export default class AddProduct extends Component {
         <p>Price</p>
         <input type="text" placeholder="price" onChange={this.handlePrice} />
         <p>Image</p>
-        <input type="text" placeholder="image" onChange={this.handleImg} /> <br/>
+        <input type="text" placeholder="image" onChange={this.handleImg} />{" "}
+        <br />
         <button onClick={this.handleAdd}>+ Add Inventory</button>
       </div>
     );
