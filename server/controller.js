@@ -10,6 +10,7 @@ module.exports = {
         res.status(500).send(err);
       });
   },
+
   getItem: (req, res) => {
     const db = req.app.get("db");
     db.get_item(req.params.id)
@@ -21,23 +22,31 @@ module.exports = {
         res.status(500).send(err);
       });
   },
+
   postInventory: (req, res) => {
     const db = req.app.get("db");
-    db.get_all([req.params.shelf]).then(shelf => {
-      if(!shelf) {
-        
+    const { name, price, img, bin } = req.body;
+    db.get_all_shelf([req.params.shelf]).then(shelf => {
+      console.log(shelf)
+      if (shelf[0]) {
+        for (let i = 0; i < shelf.length; i++) {
+          if (shelf[i].bin === ) {
+            shelf.bin++;
+          }
+        }
+      } else {
+        db.post_inventory([req.params.shelf, bin, name, price, img])
+          .then(() => {
+            res.sendStatus(200);
+          })
+          .catch(err => {
+            console.log(err);
+            res.status(500).send(err);
+          });
       }
-      const { name, price, img, bin } = req.body;
-      db.post_inventory([req.params.shelf, bin, name, price, img])
-        .then(() => {
-          res.sendStatus(200);
-        })
-        .catch(err => {
-          console.log(err);
-          res.status(500).send(err);
-        });
     });
   },
+
   deleteItem: (req, res) => {
     const db = req.app.get("db");
     db.delete_item(req.params.id)
@@ -49,6 +58,7 @@ module.exports = {
         res.status(500).send(err);
       });
   },
+
   updateBin: (req, res) => {
     const db = req.app.get("db");
     db.update_bin();

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+// import Header from './Header'
 import './Bins.css'
 import axios from "axios";
 
@@ -31,7 +32,8 @@ export default class Bins extends Component {
     });
     return (
       <div>
-        <h1>Bins</h1>
+        {/* <Header /> */}
+        <br/>
         {displayBins}
         <br/>
         <Link to={`/add/${this.props.match.params.shelf}`}>

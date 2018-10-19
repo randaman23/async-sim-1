@@ -3,10 +3,12 @@
     width: 100vw;
     height: 70px;
     border-radius: 2px;
+    border: 2px #fff solid;
     display: flex;
     padding-left: 100px;
     color: #fff;
     font-family: 'Open Sans';
+    /* font-size: 50px; */
     font-weight: bold;
 }
 .header img{
