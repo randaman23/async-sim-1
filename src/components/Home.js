@@ -1,23 +1,24 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import './Home.css'
 export default class Home extends Component {
   render() {
     return (
       <div>
-        <section>
+        <div className="shelves">
           <Link to="/bins/A">
-            <div>Shelf A</div>
+            <h2>Shelf A</h2>
           </Link>
           <Link to="/bins/B">
-            <div>Shelf B</div>
+            <h2>Shelf B</h2>
           </Link>
           <Link to="/bins/C">
-            <div>Shelf C</div>
+            <h2>Shelf C</h2>
           </Link>
           <Link to="/bins/D">
-            <div>Shelf D</div>
+            <h2>Shelf D</h2>
           </Link>
-        </section>
+        </div>
       </div>
     );
   }

@@ -32,13 +32,8 @@ export default class Item extends Component {
   }
 
   handleDelete = () => {
-    axios.delete(`/api/item/${this.props.match.params.id}`).then(res =>
-      this.setState({
-        item: res.data[0],
-        name: res.data[0].prod_name,
-        price: res.data[0].price,
-        img: res.data[0].img
-      })
+    axios.delete(`/api/item/${this.props.match.params.id}`).then(res => console.log('deleted')
+    // (`/api/getshelf/${this.props.match.params.shelf}`)
     );
   };
   handleToggle() {

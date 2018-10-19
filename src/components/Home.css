@@ -1,0 +1,10 @@
+.shelves{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+div h2{
+    background: #D34745;
+    height: 60px;
+    width: 400px;
+}
