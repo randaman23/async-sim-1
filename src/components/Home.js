@@ -1,22 +1,26 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import './Home.css'
+import "./Home.css";
 export default class Home extends Component {
   render() {
     return (
       <div>
         <div className="shelves">
+          <br />
           <Link to="/bins/A">
-            <h2>Shelf A</h2>
+            <button>Shelf A</button>
           </Link>
+          <br />
           <Link to="/bins/B">
-            <h2>Shelf B</h2>
+            <button>Shelf B</button>
           </Link>
+          <br />
           <Link to="/bins/C">
-            <h2>Shelf C</h2>
+            <button>Shelf C</button>
           </Link>
+          <br />
           <Link to="/bins/D">
-            <h2>Shelf D</h2>
+            <button>Shelf D</button>
           </Link>
         </div>
       </div>
