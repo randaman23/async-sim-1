@@ -23,15 +23,20 @@ module.exports = {
   },
   postInventory: (req, res) => {
     const db = req.app.get("db");
-    const { name, price, img, bin } = req.body;
-    db.post_inventory([req.params.shelf, bin, name, price, img])
-      .then(() => {
-        res.sendStatus(200);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).send(err);
-      });
+    db.get_all([req.params.shelf]).then(shelf => {
+      if(!shelf) {
+        
+      }
+      const { name, price, img, bin } = req.body;
+      db.post_inventory([req.params.shelf, bin, name, price, img])
+        .then(() => {
+          res.sendStatus(200);
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(500).send(err);
+        });
+    });
   },
   deleteItem: (req, res) => {
     const db = req.app.get("db");
@@ -45,7 +50,7 @@ module.exports = {
       });
   },
   updateBin: (req, res) => {
-    const db = req.app.get("db")
-    db.update_bin()
+    const db = req.app.get("db");
+    db.update_bin();
   }
 };

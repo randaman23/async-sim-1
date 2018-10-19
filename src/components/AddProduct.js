@@ -49,20 +49,20 @@ export default class AddProduct extends Component {
   }
 
   handleAdd() {
-    const { name, price, img, bin, shelf } = this.state;
-    for (let i = 0; i < shelf.length; i++) {
-      if (shelf[i].bin !== -1) {
-        this.setState({ bin: 1 });
-      } else {
-        this.setState({bin: shelf[i].bin++});
-      }      
+    const { name, price, img, bin, } = this.state;
+    // for (let i = 0; i < shelf.length; i++) {
+    //   if (shelf[i].bin !== -1) {
+    //     this.setState({ bin: 1 });
+    //   } else {
+    //     this.setState({bin: shelf[i].bin++});
+    //   }      
       axios.post(`/api/bin/${this.props.match.params.shelf}`, {
         name,
         price,
         img,
         bin
       });
-    }
+    // }
   }
   render() {
     console.log(this.state.shelf);

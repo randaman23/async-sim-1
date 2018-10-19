@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Item.css";
 import axios from "axios";
 
 export default class Item extends Component {
@@ -32,8 +33,9 @@ export default class Item extends Component {
   }
 
   handleDelete = () => {
-    axios.delete(`/api/item/${this.props.match.params.id}`).then(res => console.log('deleted')
-    // (`/api/getshelf/${this.props.match.params.shelf}`)
+    axios.delete(`/api/item/${this.props.match.params.id}`).then(
+      res => console.log("deleted")
+      // (`/api/getshelf/${this.props.match.params.shelf}`)
     );
   };
   handleToggle() {
@@ -43,19 +45,24 @@ export default class Item extends Component {
   render() {
     console.log(this.state.item);
     return (
-      <div>
-        <h1>Item</h1>
-        <img src={this.state.img} alt="" />
-        <h2>Name</h2>
-        <input type="text" disabled placeholder={this.state.name} />
-        <h2>Price</h2>
-        <input type="text" disabled placeholder={this.state.price} />
-        {this.state.toggleEdit === false ? (
-          <button>Edit</button>
-        ) : (
-          <button onClick={this.handleToggle}>Save</button>
-        )}
-        <button onClick={this.handleDelete}>Delete</button>
+      <div className="main_item">
+        <div className="item_img">
+          <img src={this.state.img} alt="" />
+        </div>
+        <div className="item_display">
+          <h2>Name</h2>
+          <input type="text" disabled placeholder={this.state.name} />
+          <h2>Price</h2>
+          <input type="text" disabled placeholder={this.state.price} />
+          <div className="edit_save_delete">
+            {this.state.toggleEdit === false ? (
+              <button>Edit</button>
+            ) : (
+              <button onClick={this.handleToggle}>Save</button>
+            )}
+            <button onClick={this.handleDelete}>Delete</button>
+          </div>
+        </div>
       </div>
     );
   }

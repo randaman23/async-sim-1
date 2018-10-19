@@ -1,0 +1,17 @@
+.item_display{
+display: flex;
+width: 100vw;
+height: 20vh;
+}
+.item_img{
+    height: 200px;
+    width: 200px;
+    border: 1px black solid;
+}
+.item_img img{
+    height: 100px;
+    width: 100px;
+}
+.main_item{
+    display: flex;
+}
