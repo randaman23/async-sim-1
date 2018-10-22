@@ -28,17 +28,20 @@ module.exports = {
     const { name, price, img, bin } = req.body;
     db.get_all_shelf([req.params.shelf]).then(shelf => {
       console.log(shelf);
-      let i = 0;
-      while (i < Infinity) {
-        i++;
-        if (shelf[i - 1] === i) {
-          continue;
-        } else {
-          return i ;
+      function findBin(shelf) {
+        let i = 0;
+        while (i < Infinity) {
+          i++;
+
+          if (shelf[i - 1] === i) {
+            continue;
+          } else {
+            return i;
+          }
         }
       }
 
-      db.post_inventory([req.params.shelf, bin, name, price, img])
+      db.post_inventory(findBin(), [req.params.shelf, bin, name, price, img])
         .then(() => {
           res.sendStatus(200);
         })
