@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 // import Header from './Header'
-import './Bins.css'
+import "./Bins.css";
 import axios from "axios";
 
 export default class Bins extends Component {
@@ -25,7 +25,7 @@ export default class Bins extends Component {
         <Link to={`/item/${e.id}`} key={e.id}>
           <div className="bins">
             <button>Bin {e.bin}</button>
-            <br/>
+            <br />
           </div>
         </Link>
       );
@@ -33,9 +33,9 @@ export default class Bins extends Component {
     return (
       <div>
         {/* <Header /> */}
-        <br/>
+        <br />
         {displayBins}
-        <br/>
+        <br />
         <Link to={`/add/${this.props.match.params.shelf}`}>
           <button className="add_inventory">+ Add Inventory</button>
         </Link>
