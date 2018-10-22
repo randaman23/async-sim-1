@@ -27,23 +27,25 @@ module.exports = {
     const db = req.app.get("db");
     const { name, price, img, bin } = req.body;
     db.get_all_shelf([req.params.shelf]).then(shelf => {
-      console.log(shelf)
-      if (shelf[0]) {
-        for (let i = 0; i < shelf.length; i++) {
-          if (shelf[i].bin === ) {
-            shelf.bin++;
-          }
+      console.log(shelf);
+      let i = 0;
+      while (i < Infinity) {
+        i++;
+        if (shelf[i - 1] === i) {
+          continue;
+        } else {
+          return i;
         }
-      } else {
-        db.post_inventory([req.params.shelf, bin, name, price, img])
-          .then(() => {
-            res.sendStatus(200);
-          })
-          .catch(err => {
-            console.log(err);
-            res.status(500).send(err);
-          });
       }
+
+      db.post_inventory([req.params.shelf, bin, name, price, img])
+        .then(() => {
+          res.sendStatus(200);
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(500).send(err);
+        });
     });
   },
 
