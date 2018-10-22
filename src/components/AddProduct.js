@@ -7,9 +7,9 @@ export default class AddProduct extends Component {
     this.state = {
       shelf: [],
       name: "",
-      price: 0,
       img: "",
-      bin: 0
+      price: 0,
+      bin: 1
     };
     this.handleName = this.handleName.bind(this);
     this.handlePrice = this.handlePrice.bind(this);

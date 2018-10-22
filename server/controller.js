@@ -34,7 +34,7 @@ module.exports = {
         if (shelf[i - 1] === i) {
           continue;
         } else {
-          return i;
+          return i ;
         }
       }
 
