@@ -10,7 +10,8 @@ export default class Item extends Component {
       name: "",
       price: "",
       img: "",
-      toggleEdit: false
+      toggleEdit: false,
+      disabled: true
     };
   }
   componentDidMount() {
@@ -22,6 +23,9 @@ export default class Item extends Component {
         img: res.data[0].img
       })
     );
+  }
+  handleDisable(){
+    this.setState({disabled: !this.state.disabled})
   }
 
   handleChangeName(e) {
@@ -51,9 +55,9 @@ export default class Item extends Component {
         </div>
         <div className="item_display">
           <h2>Name</h2>
-          <input type="text" disabled placeholder={this.state.name} />
+          <input type="text" disabled={this.state.disabled} value={this.state.name} />
           <h2>Price</h2>
-          <input type="text" disabled placeholder={this.state.price} />
+          <input type="text" disabled={this.state.disabled} value={this.state.price} />
           <div className="edit_save_delete">
             {this.state.toggleEdit === false ? (
               <button>Edit</button>

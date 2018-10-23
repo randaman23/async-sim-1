@@ -41,7 +41,7 @@ module.exports = {
         }
       }
 
-      db.post_inventory(findBin(), [req.params.shelf, bin, name, price, img])
+      db.post_inventory([req.params.shelf, bin, name, price, img])
         .then(() => {
           res.sendStatus(200);
         })
