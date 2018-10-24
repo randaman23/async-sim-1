@@ -24,31 +24,31 @@ export default class Item extends Component {
         img: res.data[0].img
       })
     );
-  }
+  };
   handleEdit = () => {
     this.setState({
-      disabled: !this.state.disabled,
+      disabled: false,
       showEdit: "hide",
       showSave: "show"
     });
-  }
+  };
   handleSave = () => {
-    axios.put().then(() => {
+    axios.put(`/api/item/`).then(() => {
       this.setState({
         disabled: true,
         showEdit: "show",
         showSave: "hide"
       });
     });
-  }
+  };
 
-  handleChangeName =(e) => {
+  handleChangeName = e => {
     this.setState({ name: e.target.value });
-  }
+  };
 
-  handleChangePrice = (e) => {
+  handleChangePrice = e => {
     this.setState({ price: e.target.value });
-  }
+  };
 
   handleDelete = () => {
     axios.delete(`/api/item/${this.props.match.params.id}`).then(
@@ -70,18 +70,25 @@ export default class Item extends Component {
             type="text"
             disabled={this.state.disabled}
             value={this.state.name}
+            onChange={this.handleChangeName}
           />
           <h2>Price</h2>
           <input
             type="text"
             disabled={this.state.disabled}
             value={this.state.price}
+            onChange={this.handleChangePrice}
           />
           <div className="edit_save_delete">
             <button className="edit_delete_button" onClick={this.handleEdit}>
               Edit
             </button>
-            <button className={`save_button ${this.state.showSave}`} onClick={this.handleSave}>Save</button>
+            <button
+              className={`save_button ${this.state.showSave}`}
+              onClick={this.handleSave}
+            >
+              Save
+            </button>
 
             <button className="edit_delete_button" onClick={this.handleDelete}>
               Delete
