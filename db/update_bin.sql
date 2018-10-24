@@ -1,2 +1,4 @@
 update products
-set prod_name = $1
+where id =  $1
+set prod_name = $2
+set price = $3

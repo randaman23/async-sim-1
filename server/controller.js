@@ -26,7 +26,7 @@ module.exports = {
   postInventory: (req, res) => {
     const db = req.app.get("db");
     const { name, price, img, bin } = req.body;
-    db.get_all_shelf([req.params.shelf]).then(shelf => {
+    db.get_all_from_shelf([req.params.shelf]).then(shelf => {
       console.log(shelf);
       function findBin(shelf) {
         let i = 0;
@@ -66,6 +66,14 @@ module.exports = {
 
   updateBin: (req, res) => {
     const db = req.app.get("db");
-    db.update_bin();
+    const { name, price } = req.body;
+    db.update_bin([req.params.id, name, price])
+      .then(item => {
+        res.status(200).send(item);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).send(err);
+      });
   }
 };

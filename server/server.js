@@ -18,7 +18,7 @@ app.get("/api/getshelf/:shelf", ctrl.getShelf);
 app.get("/api/item/:id", ctrl.getItem);
 app.post("/api/bin/:shelf", ctrl.postInventory);
 app.delete("/api/item/:id", ctrl.deleteItem);
-app.put("/api/bin/:id", ctrl.updateBin);
+app.put("/api/item/:id", ctrl.updateBin);
 app.listen(SERVER_PORT, () => {
   console.log(`Magic is happen' on port ${SERVER_PORT}`);
 });
