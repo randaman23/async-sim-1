@@ -23,12 +23,12 @@ module.exports = {
       });
   },
 
-  postInventory: (req, res) => {
+  postInventory: (req, res, next) => {
     const db = req.app.get("db");
     const { name, price, img, bin } = req.body;
     db.get_all_from_shelf([req.params.shelf]).then(shelf => {
       console.log(shelf);
-      function findBin(shelf) {
+      return function findBin(shelf) {
         let i = 0;
         while (i < Infinity) {
           i++;
@@ -38,17 +38,16 @@ module.exports = {
           } else {
             return i;
           }
-        }
-      }
-
-      db.post_inventory([req.params.shelf, bin, name, price, img])
-        .then(() => {
-          res.sendStatus(200);
-        })
-        .catch(err => {
-          console.log(err);
-          res.status(500).send(err);
-        });
+        } 
+        db.post_inventory([req.params.shelf, findBin(bin), name, price, img])
+          .then(() => {
+            res.sendStatus(200);
+          })
+          .catch(err => {
+            console.log(err);
+            res.status(500).send(err);
+          });
+      };
     });
   },
 

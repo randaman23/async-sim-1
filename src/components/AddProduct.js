@@ -55,11 +55,11 @@ export default class AddProduct extends Component {
       <div className="add_prod_main">
         <h1>Add</h1>
         <p>Name</p>
-        <input type="text" placeholder="name" onChange={this.handleName} />
+        <input type="text" onChange={this.handleName} />
         <p>Price</p>
-        <input type="text" placeholder="price" onChange={this.handlePrice} />
+        <input type="text"  onChange={this.handlePrice} />
         <p>Image</p>
-        <input type="text" placeholder="image" onChange={this.handleImg} />{" "}
+        <input type="text"  onChange={this.handleImg} />{" "}
         <br />
         <button onClick={this.handleAdd}>+ Add Inventory</button>
       </div>
