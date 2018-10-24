@@ -33,12 +33,14 @@ export default class Item extends Component {
     });
   };
   handleSave = () => {
-    const {name, price} = this.state
-    axios.put(`/api/item/${this.state.item.id}`, {name, price}).then(() => {
+    const { name, price } = this.state;
+    axios.put(`/api/item/${this.state.item.id}`, { name, price }).then(res => {
       this.setState({
         disabled: true,
         showEdit: "show",
-        showSave: "hide"
+        showSave: "hide",
+        name: res.data.prod_name,
+        price: res.data.price
       });
     });
   };
