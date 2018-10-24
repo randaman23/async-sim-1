@@ -15,7 +15,7 @@ export default class Item extends Component {
       disabled: true
     };
   }
-  componentDidMount() {
+  componentDidMount = () => {
     axios.get(`/api/item/${this.props.match.params.id}`).then(res =>
       this.setState({
         item: res.data[0],
@@ -25,19 +25,28 @@ export default class Item extends Component {
       })
     );
   }
-  handleChanged() {
+  handleEdit = () => {
     this.setState({
       disabled: !this.state.disabled,
       showEdit: "hide",
       showSave: "show"
     });
   }
+  handleSave = () => {
+    axios.put().then(() => {
+      this.setState({
+        disabled: true,
+        showEdit: "show",
+        showSave: "hide"
+      });
+    });
+  }
 
-  handleChangeName(e) {
+  handleChangeName =(e) => {
     this.setState({ name: e.target.value });
   }
 
-  handleChangePrice(e) {
+  handleChangePrice = (e) => {
     this.setState({ price: e.target.value });
   }
 
@@ -69,10 +78,14 @@ export default class Item extends Component {
             value={this.state.price}
           />
           <div className="edit_save_delete">
-            
-              <button>Edit</button>
-           
-            <button onClick={this.handleDelete}>Delete</button>
+            <button className="edit_delete_button" onClick={this.handleEdit}>
+              Edit
+            </button>
+            <button className="save_button">Save</button>
+
+            <button className="edit_delete_button" onClick={this.handleDelete}>
+              Delete
+            </button>
           </div>
         </div>
       </div>

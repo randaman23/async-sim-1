@@ -15,3 +15,13 @@ height: 20vh;
 .main_item{
     display: flex;
 }
+
+.save_button{
+    background: #40f99b;
+    border: none;
+    border-radius: 7px;
+    height: 70px;
+    width: 200px;
+    font-size: 32px;
+    font-weight: bold;
+}
