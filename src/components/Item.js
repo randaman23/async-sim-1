@@ -81,7 +81,7 @@ export default class Item extends Component {
             <button className="edit_delete_button" onClick={this.handleEdit}>
               Edit
             </button>
-            <button className="save_button">Save</button>
+            <button className={`save_button ${this.state.showSave}`} onClick={this.handleSave}>Save</button>
 
             <button className="edit_delete_button" onClick={this.handleDelete}>
               Delete
