@@ -10,7 +10,8 @@ export default class Item extends Component {
       name: "",
       price: "",
       img: "",
-      toggleEdit: false,
+      showEdit: "show",
+      showSave: "hide",
       disabled: true
     };
   }
@@ -24,8 +25,12 @@ export default class Item extends Component {
       })
     );
   }
-  handleDisable(){
-    this.setState({disabled: !this.state.disabled})
+  handleChanged() {
+    this.setState({
+      disabled: !this.state.disabled,
+      showEdit: "hide",
+      showSave: "show"
+    });
   }
 
   handleChangeName(e) {
@@ -42,9 +47,6 @@ export default class Item extends Component {
       // (`/api/getshelf/${this.props.match.params.shelf}`)
     );
   };
-  handleToggle() {
-    this.setState({ toggleEdit: true });
-  }
 
   render() {
     console.log(this.state.item);
@@ -55,15 +57,21 @@ export default class Item extends Component {
         </div>
         <div className="item_display">
           <h2>Name</h2>
-          <input type="text" disabled={this.state.disabled} value={this.state.name} />
+          <input
+            type="text"
+            disabled={this.state.disabled}
+            value={this.state.name}
+          />
           <h2>Price</h2>
-          <input type="text" disabled={this.state.disabled} value={this.state.price} />
+          <input
+            type="text"
+            disabled={this.state.disabled}
+            value={this.state.price}
+          />
           <div className="edit_save_delete">
-            {this.state.toggleEdit === false ? (
+            
               <button>Edit</button>
-            ) : (
-              <button onClick={this.handleToggle}>Save</button>
-            )}
+           
             <button onClick={this.handleDelete}>Delete</button>
           </div>
         </div>
