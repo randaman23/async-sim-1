@@ -53,7 +53,7 @@ export default class AddProduct extends Component {
     console.log(this.state.shelf);
     return (
       <div className="add_prod_main">
-        <h1>Add</h1>
+        <h1>ADD YO PRODUCTS</h1> 
         <p>Name</p>
         <input type="text" onChange={this.handleName} />
         <p>Price</p>

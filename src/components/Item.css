@@ -12,7 +12,10 @@ height: 20vh;
 }
 
 .item_display input{
-    height: 100px;
+    width: 400px;
+    height: 50px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
 }
 
 .item_img{
@@ -47,4 +50,10 @@ height: 20vh;
     width: 200px;
     font-size: 32px;
     font-weight: bold;
+}
+.edit_save_delete{
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    margin-top: 40px;
 }
