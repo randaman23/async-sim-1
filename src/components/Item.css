@@ -1,7 +1,14 @@
 .item_display{
 display: flex;
+flex-direction: column;
 width: 100vw;
 height: 20vh;
+}
+.item_display h2{
+    text-align: left;
+    height: 100vh;
+    width: 70vw;
+    margin-bottom: 20px;
 }
 .item_img{
     height: 200px;
@@ -9,17 +16,27 @@ height: 20vh;
     border: 1px black solid;
 }
 .item_img img{
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
 }
 .main_item{
     display: flex;
+    align-items: center;
 }
 
 .save_button{
     background: #40f99b;
     border: none;
     border-radius: 50px;
+    height: 70px;
+    width: 200px;
+    font-size: 32px;
+    font-weight: bold;
+}
+.edit_delete_button{
+    background: #D8D8D8;
+    border: none;
+    border-radius: 7px;
     height: 70px;
     width: 200px;
     font-size: 32px;
