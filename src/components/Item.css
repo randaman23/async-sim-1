@@ -8,8 +8,13 @@ height: 20vh;
     text-align: left;
     height: 100vh;
     width: 70vw;
-    margin-bottom: 20px;
+    margin-left: 40px;
 }
+
+.item_display input{
+    height: 100px;
+}
+
 .item_img{
     height: 200px;
     width: 200px;
@@ -22,6 +27,7 @@ height: 20vh;
 .main_item{
     display: flex;
     align-items: center;
+    margin-left: 40px;
 }
 
 .save_button{

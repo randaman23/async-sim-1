@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import './AddProducts.css'
 
 export default class AddProduct extends Component {
   constructor(props) {
@@ -51,7 +52,7 @@ export default class AddProduct extends Component {
   render() {
     console.log(this.state.shelf);
     return (
-      <div>
+      <div className="add_prod_main">
         <h1>Add</h1>
         <p>Name</p>
         <input type="text" placeholder="name" onChange={this.handleName} />
