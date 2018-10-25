@@ -15,7 +15,9 @@ margin-left: 60px;
     width: 400px;
     height: 50px;
     font-family: 'Open Sans', sans-serif;
-    font-size: 15px;
+    font-size: 25px;
+    font-weight: bolder;
+    padding: 10px;
 }
 
 .item_img{
@@ -29,9 +31,8 @@ margin-left: 60px;
 }
 .main_item{
     display: flex;
-    /* align-items: ; */
     margin-left: 40px;
-    /* margin-top: px; */
+    margin-top: 40px;
     width: 100vw;
     height: 100vh;
 }
@@ -44,6 +45,7 @@ margin-left: 60px;
     width: 200px;
     font-size: 32px;
     font-weight: bold;
+    margin-right: 22px;
 }
 .edit_delete_button{
     background: #D8D8D8;
@@ -53,11 +55,11 @@ margin-left: 60px;
     width: 200px;
     font-size: 32px;
     font-weight: bold;
+    margin-right: 22px;
 }
 .edit_save_delete{
     display: flex;
     flex-direction: row;
     align-items: left;
     margin-top: 40px;
-    margin-left: -190px;
 }
