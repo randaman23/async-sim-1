@@ -3,6 +3,7 @@ display: flex;
 flex-direction: column;
 width: 100vw;
 height: 20vh;
+margin-left: 60px;
 }
 .item_display h2{
     text-align: left;
@@ -21,7 +22,7 @@ height: 20vh;
 .item_img{
     height: 200px;
     width: 200px;
-    border: 1px black solid;
+    border: none;
 }
 .item_img img{
     height: 200px;
@@ -31,6 +32,7 @@ height: 20vh;
     display: flex;
     align-items: center;
     margin-left: 40px;
+    margin-top: 40px;
 }
 
 .save_button{
@@ -56,4 +58,5 @@ height: 20vh;
     flex-direction: row;
     align-items: left;
     margin-top: 40px;
+    margin-left: -190px;
 }

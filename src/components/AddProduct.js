@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import './AddProducts.css'
+import "./AddProducts.css";
 
 export default class AddProduct extends Component {
   constructor(props) {
@@ -9,8 +9,7 @@ export default class AddProduct extends Component {
       shelf: [],
       name: "",
       img: "",
-      price: 0,
-      bin: 1
+      price: 0
     };
     this.handleName = this.handleName.bind(this);
     this.handlePrice = this.handlePrice.bind(this);
@@ -40,12 +39,11 @@ export default class AddProduct extends Component {
   }
 
   handleAdd() {
-    const { name, price, img, bin } = this.state;
+    const { name, price, img } = this.state;
     axios.post(`/api/bin/${this.props.match.params.shelf}`, {
       name,
       price,
-      img,
-      bin
+      img
     });
     // }
   }
@@ -53,14 +51,13 @@ export default class AddProduct extends Component {
     console.log(this.state.shelf);
     return (
       <div className="add_prod_main">
-        <h1>ADD YO PRODUCTS</h1> 
+        <h1>ADD YO PRODUCTS</h1>
         <p>Name</p>
         <input type="text" onChange={this.handleName} />
         <p>Price</p>
-        <input type="text"  onChange={this.handlePrice} />
+        <input type="text" onChange={this.handlePrice} />
         <p>Image</p>
-        <input type="text"  onChange={this.handleImg} />{" "}
-        <br />
+        <input type="text" onChange={this.handleImg} /> <br />
         <button onClick={this.handleAdd}>+ Add Inventory</button>
       </div>
     );
