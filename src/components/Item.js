@@ -12,7 +12,8 @@ export default class Item extends Component {
       img: "",
       showEdit: "show",
       showSave: "hide",
-      disabled: true
+      disabled: true,
+      bin: null
     };
   }
   componentDidMount = () => {
