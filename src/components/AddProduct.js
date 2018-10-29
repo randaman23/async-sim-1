@@ -45,7 +45,6 @@ export default class AddProduct extends Component {
       price,
       img
     });
-    // }
   }
   render() {
     console.log(this.state.shelf);

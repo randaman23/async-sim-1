@@ -54,9 +54,9 @@ export default class Item extends Component {
   };
 
   handleDelete = () => {
-    axios.delete(`/api/item/${this.props.match.params.id}`).then(
-      res => this.props.history.push(`/`)
-    );
+    axios
+      .delete(`/api/item/${this.props.match.params.id}`)
+      .then(res => this.props.history.push(`/`));
   };
 
   render() {
@@ -82,19 +82,18 @@ export default class Item extends Component {
             onChange={this.handleChangePrice}
           />
           <div className="edit_save_delete">
-          { this.state.showEdit === 'show' ?
-            <button className="edit_delete_button" onClick={this.handleEdit}>
-              Edit
-            </button>
-            :
-            <button
-              className={`save_button ${this.state.showSave}`}
-              onClick={this.handleSave}
-            >
-              Save
-            </button>
-          }
-            
+            {this.state.showEdit === "show" ? (
+              <button className="edit_delete_button" onClick={this.handleEdit}>
+                Edit
+              </button>
+            ) : (
+              <button
+                className={`save_button ${this.state.showSave}`}
+                onClick={this.handleSave}
+              >
+                Save
+              </button>
+            )}
 
             <button className="edit_delete_button" onClick={this.handleDelete}>
               Delete
