@@ -22,12 +22,14 @@ export default class Bins extends Component {
     console.log(this.state);
     let displayBins = this.state.shelf.map(e => {
       return (
-        <Link to={`/item/${e.id}`} key={e.id}>
-          <div className="bins">
-            <button>Bin {e.bin}</button>
-            <br />
-          </div>
-        </Link>
+        <div>
+          <Link to={`/item/${e.id}`} key={e.id}>
+            <div className="bins">
+              <button>Bin {e.bin}</button>
+              <br />
+            </div>
+          </Link>
+        </div>
       );
     });
     return (
