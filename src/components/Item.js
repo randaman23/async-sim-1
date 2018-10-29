@@ -21,7 +21,8 @@ export default class Item extends Component {
         item: res.data[0],
         name: res.data[0].prod_name,
         price: res.data[0].price,
-        img: res.data[0].img
+        img: res.data[0].img,
+        bin: res.data[0].bin
       })
     );
   };
@@ -60,7 +61,7 @@ export default class Item extends Component {
   };
 
   render() {
-    console.log(this.state.item);
+    console.log(this.state);
     return (
       <div className="main_item">
         <div className="item_img">
