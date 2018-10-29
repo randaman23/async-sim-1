@@ -56,7 +56,7 @@ export default class Item extends Component {
   handleDelete = () => {
     axios
       .delete(`/api/item/${this.props.match.params.id}`)
-      .then(res => this.props.history.push(`/`));
+      .then(res => this.props.history.push(`/bins/${res.data[0].shelf}`));
   };
 
   render() {

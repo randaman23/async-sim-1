@@ -44,8 +44,8 @@ module.exports = {
         i = 1;
       }
       db.post_inventory([req.params.shelf, i, name, price, img])
-        .then(() => {
-          res.sendStatus(200);
+        .then((shelf) => {
+          res.status(200).send(shelf);
         })
         .catch(err => {
           console.log(err);

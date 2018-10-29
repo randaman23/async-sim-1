@@ -40,11 +40,13 @@ export default class AddProduct extends Component {
 
   handleAdd() {
     const { name, price, img } = this.state;
-    axios.post(`/api/bin/${this.props.match.params.shelf}`, {
-      name,
-      price,
-      img
-    });
+    axios
+      .post(`/api/bin/${this.props.match.params.shelf}`, {
+        name,
+        price,
+        img
+      })
+      .then(res => this.props.history.push(`/item/${res.data[0].id}`));
   }
   render() {
     console.log(this.state.shelf);
